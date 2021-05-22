@@ -21,7 +21,8 @@ FROM plutus-core AS plutus-playground
 WORKDIR /opt/plutus/plutus-playground-client
 RUN sed -i -e 's/localhost:8080/server:8080/g' default.nix && \
 	sed -i -e 's/localhost:8080/server:8080/g' webpack.config.js && \
-	sed -i -e 's/--progress/--progress --host=0.0.0.0/g' package.json
+	sed -i -e 's/webpack-dev-server --progress/webpack-dev-server --host=0.0.0.0 --progress/g' package.json && \
+	sed -i -e 's/webpack-cli serve/webpack-cli serve --host=0.0.0.0/g' package.json
 
 WORKDIR /opt/plutus
 RUN nix-shell --run "cd plutus-playground-client && npm install && plutus-playground-generate-purs && npm run purs:compile && npm run webpack"

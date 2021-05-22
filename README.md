@@ -15,8 +15,6 @@ The build argument is optional and defaults to the latest commit. (But beware of
 
 For the *Plutus Pioneer Program*, you should target a specific commit. Open the `cabal.project` file and look for `source-repository-package` with location [https://github.com/input-output-hk/plutus.git](https://github.com/input-output-hk/plutus.git). The specified tag, e.g., `530cc134364ae186f39fb2b54239fb7c5e2986e9` for week07, should be used as `PLUTUS_GIT_COMMIT`.
 
-Note that the patch for the issue described [here](https://docs.plutus-community.com/docs/setup/WindowsWSL.html) in the section *Troubleshooting* is fragile and had to be adapted to [this upstream commit](https://github.com/input-output-hk/plutus/commit/d9a840894576a9bec3274c8b0d349a93f6f86ac3). If you want to build week01 to week06, check out `ppp-week06` of this repository.
-
 ### Start the container
 ```
 docker-compose up -d
