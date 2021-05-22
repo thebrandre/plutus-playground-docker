@@ -1,0 +1,21 @@
+version: '3.6'
+services:
+  server:
+    build:
+      context: ./build
+      target: plutus-playground
+    image: plutus-playground
+    ports:
+      - '8080:8080'
+    command:
+      - 'cd plutus-playground-client && plutus-playground-server'
+  client:
+    image: plutus-playground
+    command:
+      - 'cd plutus-playground-client && npm run start'
+    depends_on:
+      - server
+    ports:
+      - '8009:8009'
+    links:
+      - server
