@@ -31,3 +31,11 @@ EXPOSE 8080
 EXPOSE 8009
 
 ENTRYPOINT [ "nix-shell", "--run" ]
+
+
+FROM plutus-core AS plutus-docs
+WORKDIR /opt/plutus
+
+RUN nix-shell --run "nix-build default.nix -A docs.build-and-serve-docs"
+EXPOSE 8002
+ENTRYPOINT [ "nix-shell", "--run" ]
