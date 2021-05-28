@@ -39,3 +39,13 @@ WORKDIR /opt/plutus
 RUN nix-shell --run "nix-build default.nix -A docs.build-and-serve-docs"
 EXPOSE 8002
 ENTRYPOINT [ "nix-shell", "--run" ]
+
+
+FROM plutus-core AS plutus-haddock
+COPY "haddock_main.hs" "/opt/plutus-haddock/main.hs"
+WORKDIR /opt/plutus
+
+RUN nix-shell --run "cd /opt/plutus-haddock && ghc -o plutus-haddock main.hs"
+RUN nix-shell --run "DEST=\$(nix-build -A plutus-playground.haddock) && ln -s \$DEST/ /opt/plutus-haddock/result"
+EXPOSE 8081
+ENTRYPOINT [ "nix-shell", "--run" ]

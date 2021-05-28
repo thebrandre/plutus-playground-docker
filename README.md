@@ -19,8 +19,9 @@ For the *Plutus Pioneer Program*, you should target a specific commit. Open the 
 ```
 docker-compose up -d
 ```
-
-Visit [https://localhost:8009/](https://localhost:8009/) and accept the security risk.
+* To visit *Plutus Playground*, navigate to [https://localhost:8009/](https://localhost:8009/) and accept the security risk.
+* To visit the *Cardano documentation*, navigate to [http://localhost:8002/](http://localhost:8002/).
+* To visit the *Plutus Haddock documentation*, navigate to [http://localhost:8081/plutus-haddock/index.html](http://localhost:8081/plutus-haddock/index.html).
 
 ### Shutdown
 The Playground can be stopped via:
