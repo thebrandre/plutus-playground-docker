@@ -9,14 +9,15 @@
 ### Build the container
 Building is required only once on your machine and has to be repeated only for the purpose of updating.
 ```
-docker-compose build --build-arg PLUTUS_GIT_COMMIT=530cc134364ae186f39fb2b54239fb7c5e2986e9
+docker-compose build --build-arg PLUTUS_GIT_COMMIT=13da6d416b2b47cdb6f287ff078b9e759bb90b7f
 ```
-The build argument is optional and defaults to the latest commit. (But beware of Docker caching!)
+The build argument `PLUTUS_GIT_COMMIT` refers to, in principle, any commit of [Plutus](https://github.com/input-output-hk/plutus). It is optional and defaults to the latest commit. (But beware of Docker caching!)
+See further below for a list of tested commits.
 
 ### Plutus Pioneer Program
 For the *Plutus Pioneer Program*, you should target a specific commit. Open the `cabal.project` file and look for `source-repository-package` with location [https://github.com/input-output-hk/plutus.git](https://github.com/input-output-hk/plutus.git).
 
-The specified tag, e.g., `530cc134364ae186f39fb2b54239fb7c5e2986e9` for week07, should be used as `PLUTUS_GIT_COMMIT`. 
+The specified tag, e.g., `13da6d416b2b47cdb6f287ff078b9e759bb90b7f` for week09, should be used as `PLUTUS_GIT_COMMIT`. 
 
 | Week | PLUTUS_GIT_COMMIT                        |
 |:----:|-----------------------------------------:|
@@ -28,9 +29,11 @@ The specified tag, e.g., `530cc134364ae186f39fb2b54239fb7c5e2986e9` for week07, 
 | 6    | 476409eaee94141e2fe076a7821fc2fcdec5dfcb |
 | 7    | 530cc134364ae186f39fb2b54239fb7c5e2986e9 |
 | 8    | ae35c4b8fe66dd626679bd2951bd72190e09a123 |
+| 9    | 13da6d416b2b47cdb6f287ff078b9e759bb90b7f |
 
 
 ### Start the container
+After completing the build step, you can start the most recently built version via:
 ```
 docker-compose up -d
 ```
