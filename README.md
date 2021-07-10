@@ -35,6 +35,30 @@ docker-compose up -d
 * To visit the *Cardano documentation*, navigate to [http://localhost:8002/](http://localhost:8002/).
 * To visit the *Plutus Haddock documentation*, navigate to [http://localhost:8081/plutus-haddock/index.html](http://localhost:8081/plutus-haddock/index.html).
 
+### Use the Plutus-Core image to build projects from the Plutus Pioneer Program
+You can also use the plutus-core image to build projects from the [Plutus Pioneer Program](https://github.com/input-output-hk/plutus-pioneer-program).
+The first thing you have to do, is to build the image. If you have previously built the docker-compose file, this will be very fast thanks to Docker's caching feature.
+```Powershell
+cd build
+docker build --target plutus-core --build-arg PLUTUS_GIT_COMMIT=81ba78edb1d634a13371397d8c8b19829345ce0d --tag plutus-core:cohort2-week2 .
+```
+
+Then, you can run the image inside your existing clone of the *Plutus Pioneer Program* project:
+```Powershell
+docker run --volume=${PWD}:/plutus-pionieer-program -it plutus-core:cohort2-week2 nix-shell
+```
+Of course, you can also omit the `--volume` and clone [Plutus Pioneer Program](https://github.com/input-output-hk/plutus-pioneer-program) inside the container.
+
+If you encounter an error similar to the following, you probably ran into [this open issue of cabal](https://github.com/haskell/cabal/issues/6126).
+```
+dieVerbatim: user error (cabal: '/usr/bin/wget' exited with an error:
+/usr/bin/wget: unrecognized option: input-file=-
+BusyBox v1.33.1 () multi-call binary.
+```
+This error is coming from `wget` as provided via `apk`. An easy workaround is to install another version of `wget` by running `nix-env --install wget`, which automatically hides `apk`'s wget.
+
+You will also need to invoke `cabal update` before running `cabal build` on one of the projects.
+
 ### Shutdown
 The Playground can be stopped via:
 ```
