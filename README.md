@@ -23,6 +23,7 @@ The specified tag, e.g., `81ba78edb1d634a13371397d8c8b19829345ce0d` for week02, 
 |:----:|--------------------------------------------------------------------------------------------------------------------------------------:|
 | 1    | [`ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4`](https://github.com/input-output-hk/plutus/tree/ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4) |
 | 2    | [`81ba78edb1d634a13371397d8c8b19829345ce0d`](https://github.com/input-output-hk/plutus/tree/81ba78edb1d634a13371397d8c8b19829345ce0d) |
+| 3    | [`219992289c6615e197069d022735cb4059d43229`](https://github.com/input-output-hk/plutus/tree/219992289c6615e197069d022735cb4059d43229) |
 
 For older releases that were used in the first cohort of the *Plutus Pioneer Program*, please checkout the branch *first-cohort*.
 
