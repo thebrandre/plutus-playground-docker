@@ -9,7 +9,7 @@
 ### Build the container
 Building is required only once on your machine and has to be repeated only for the purpose of updating.
 ```
-docker-compose build --build-arg PLUTUS_GIT_COMMIT=81ba78edb1d634a13371397d8c8b19829345ce0d
+docker-compose build --build-arg PLUTUS_GIT_COMMIT=219992289c6615e197069d022735cb4059d43229
 ```
 The build argument `PLUTUS_GIT_COMMIT` refers to, in principle, any commit of [Plutus](https://github.com/input-output-hk/plutus). It is optional and defaults to the latest commit. (But beware of Docker caching!)
 See further below for a list of tested commits.
@@ -17,12 +17,13 @@ See further below for a list of tested commits.
 ### Plutus Pioneer Program
 For the *Plutus Pioneer Program*, you should target a specific commit. Open the `cabal.project` file and look for `source-repository-package` with location [https://github.com/input-output-hk/plutus.git](https://github.com/input-output-hk/plutus.git).
 
-The specified tag, e.g., `81ba78edb1d634a13371397d8c8b19829345ce0d` for week02, should be used as `PLUTUS_GIT_COMMIT`. 
+The specified tag, e.g., `219992289c6615e197069d022735cb4059d43229` for week02, should be used as `PLUTUS_GIT_COMMIT`. 
 
 | Week | PLUTUS_GIT_COMMIT                                                                                                                     |
 |:----:|--------------------------------------------------------------------------------------------------------------------------------------:|
 | 1    | [`ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4`](https://github.com/input-output-hk/plutus/tree/ea0ca4e9f9821a9dbfc5255fa0f42b6f2b3887c4) |
 | 2    | [`81ba78edb1d634a13371397d8c8b19829345ce0d`](https://github.com/input-output-hk/plutus/tree/81ba78edb1d634a13371397d8c8b19829345ce0d) |
+| 3    | [`219992289c6615e197069d022735cb4059d43229`](https://github.com/input-output-hk/plutus/tree/219992289c6615e197069d022735cb4059d43229) |
 
 For older releases that were used in the first cohort of the *Plutus Pioneer Program*, please checkout the branch *first-cohort*.
 
