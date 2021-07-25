@@ -35,7 +35,7 @@ docker-compose up -d
 ```
 * To visit *Plutus Playground*, navigate to [https://localhost:8009/](https://localhost:8009/) and accept the security risk. This may take several minutes to start.
 * To visit the *Cardano documentation*, navigate to [http://localhost:8002/](http://localhost:8002/).
-* To visit the *Plutus Haddock documentation*, navigate to [http://localhost:8081/plutus-haddock/index.html](http://localhost:8081/plutus-haddock/index.html).
+* To visit the *Plutus Haddock documentation*, navigate to [http://localhost:8081/](http://localhost:8081/).
 
 ### Use the Plutus-Core image to build projects from the Plutus Pioneer Program
 You can also use the plutus-core image to build projects from the [Plutus Pioneer Program](https://github.com/input-output-hk/plutus-pioneer-program).

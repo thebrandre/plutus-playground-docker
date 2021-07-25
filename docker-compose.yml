@@ -29,12 +29,10 @@ services:
     command:
       - 'build-and-serve-docs'
   haddock:
-        build:
-          context: ./build
-          target: plutus-haddock
-        image: plutus-haddock
-        ports:
-          - '8081:8081'
-        command:
-          - 'cd /opt/plutus-haddock && ./plutus-haddock -s ./result'
+    build:
+      context: ./build
+      target: plutus-haddock
+    image: plutus-haddock
+    ports:
+      - '8081:80'
 

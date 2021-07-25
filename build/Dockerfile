@@ -40,11 +40,11 @@ EXPOSE 8002
 ENTRYPOINT [ "nix-shell", "--run" ]
 
 
-FROM plutus-core AS plutus-haddock
-COPY "haddock_main.hs" "/opt/plutus-haddock/main.hs"
-WORKDIR /opt/plutus
+FROM plutus-core AS plutus-haddock-build
 
-RUN nix-shell --run "cd /opt/plutus-haddock && ghc -o plutus-haddock main.hs"
-RUN nix-shell --run "DEST=\$(nix-build -A plutus-playground.haddock) && ln -s \$DEST/ /opt/plutus-haddock/result"
-EXPOSE 8081
-ENTRYPOINT [ "nix-shell", "--run" ]
+WORKDIR /opt/plutus
+RUN nix-shell --run "nix-build --out-link /opt/plutus-haddock-build -A plutus-playground.haddock"
+
+
+FROM nginx:1.20.1 AS plutus-haddock
+COPY --from=plutus-haddock-build /opt/plutus-haddock-build/share/doc /usr/share/nginx/html
