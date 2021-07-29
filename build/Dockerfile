@@ -13,7 +13,7 @@ RUN git clone https://github.com/input-output-hk/plutus /opt/plutus && \
 	git checkout ${PLUTUS_GIT_COMMIT}
 
 WORKDIR /opt/plutus
-RUN nix-shell --run "nix build -f default.nix plutus.haskell.packages.plutus-core"
+RUN nix-shell --run "nix build -f default.nix plutus.haskell.packages.plutus-core.components.library"
 ENTRYPOINT [ "nix-shell", "--run" ]
 
 FROM plutus-core AS plutus-playground
