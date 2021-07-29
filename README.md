@@ -9,7 +9,7 @@
 ### Build the container
 Building is required only once on your machine and has to be repeated only for the purpose of updating.
 ```
-docker-compose build --build-arg PLUTUS_GIT_COMMIT=2fbb7abb22138a434bb6c4f663a81e9b9dc51e98
+docker-compose build --build-arg PLUTUS_GIT_COMMIT=8a20664f00d8f396920385947903761a9a897fe0
 ```
 The build argument `PLUTUS_GIT_COMMIT` refers to, in principle, any commit of [Plutus](https://github.com/input-output-hk/plutus). It is optional and defaults to the latest commit. (But beware of Docker caching!)
 See further below for a list of tested commits.
@@ -17,7 +17,7 @@ See further below for a list of tested commits.
 ### Plutus Pioneer Program
 For the *Plutus Pioneer Program*, you should target a specific commit. Open the `cabal.project` file and look for `source-repository-package` with location [https://github.com/input-output-hk/plutus.git](https://github.com/input-output-hk/plutus.git).
 
-The specified tag, e.g., `2fbb7abb22138a434bb6c4f663a81e9b9dc51e98` for week04, should be used as `PLUTUS_GIT_COMMIT`. 
+The specified tag, e.g., `8a20664f00d8f396920385947903761a9a897fe0` for week06, should be used as `PLUTUS_GIT_COMMIT`. 
 
 | Week | PLUTUS_GIT_COMMIT                                                                                                                     |
 |:----:|--------------------------------------------------------------------------------------------------------------------------------------:|
@@ -25,6 +25,8 @@ The specified tag, e.g., `2fbb7abb22138a434bb6c4f663a81e9b9dc51e98` for week04, 
 | 2    | [`81ba78edb1d634a13371397d8c8b19829345ce0d`](https://github.com/input-output-hk/plutus/tree/81ba78edb1d634a13371397d8c8b19829345ce0d) |
 | 3    | [`219992289c6615e197069d022735cb4059d43229`](https://github.com/input-output-hk/plutus/tree/219992289c6615e197069d022735cb4059d43229) |
 | 4    | [`2fbb7abb22138a434bb6c4f663a81e9b9dc51e98`](https://github.com/input-output-hk/plutus/tree/2fbb7abb22138a434bb6c4f663a81e9b9dc51e98) |
+| 6    | [`8a20664f00d8f396920385947903761a9a897fe0`](https://github.com/input-output-hk/plutus/tree/8a20664f00d8f396920385947903761a9a897fe0) |
+
 
 For older releases that were used in the first cohort of the *Plutus Pioneer Program*, please checkout the branch *first-cohort*.
 
