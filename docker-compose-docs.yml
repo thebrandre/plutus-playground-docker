@@ -10,9 +10,7 @@ services:
   docs:
     build:
       context: ./build
-      target: plutus-docs
-    image: plutus-docs
+      target: cardano-docs
+    image: cardano-docs
     ports:
-      - '8002:8002'
-    command:
-      - 'build-and-serve-docs'
+      - '8002:80'

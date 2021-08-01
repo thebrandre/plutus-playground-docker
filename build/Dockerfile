@@ -32,19 +32,16 @@ EXPOSE 8009
 ENTRYPOINT [ "nix-shell", "--run" ]
 
 
-FROM plutus-core AS plutus-docs
+FROM plutus-core AS docs-build
 WORKDIR /opt/plutus
 
-RUN nix-shell --run "nix-build default.nix -A docs.build-and-serve-docs"
-EXPOSE 8002
-ENTRYPOINT [ "nix-shell", "--run" ]
+RUN nix-shell --run "nix-build -A docs.site --out-link /opt/plutus-docs-build"
 
-
-FROM plutus-core AS plutus-haddock-build
-
-WORKDIR /opt/plutus
-RUN nix-shell --run "nix-build --out-link /opt/plutus-haddock-build -A plutus-playground.haddock"
-
+FROM nginx:1.20.1 AS cardano-docs
+COPY --from=docs-build /opt/plutus-docs-build /usr/share/nginx/html
 
 FROM nginx:1.20.1 AS plutus-haddock
-COPY --from=plutus-haddock-build /opt/plutus-haddock-build/share/doc /usr/share/nginx/html
+COPY --from=docs-build /opt/plutus-docs-build/haddock /usr/share/nginx/html
+
+
+
