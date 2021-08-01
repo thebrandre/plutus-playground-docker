@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  haddock:
+    build:
+      context: ./build
+      target: plutus-haddock
+    image: plutus-haddock
+    ports:
+      - '8081:80'
+  docs:
+    build:
+      context: ./build
+      target: plutus-docs
+    image: plutus-docs
+    ports:
+      - '8002:8002'
+    command:
+      - 'build-and-serve-docs'
