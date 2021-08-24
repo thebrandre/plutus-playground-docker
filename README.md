@@ -9,7 +9,7 @@
 ### Build the Plutus Playground images
 Building is required only once on your machine and has to be repeated only for the purpose of updating.
 ```
-docker-compose build --build-arg PLUTUS_GIT_COMMIT=8a20664f00d8f396920385947903761a9a897fe0
+docker-compose build --build-arg PLUTUS_GIT_COMMIT=7b5829f2ac57fcfa25a5969ff602b48641b36ac3
 ```
 The build argument `PLUTUS_GIT_COMMIT` refers to, in principle, any commit of [Plutus](https://github.com/input-output-hk/plutus). It is optional and defaults to the latest commit. (But beware of Docker caching!)
 See further below for a list of tested commits.
@@ -17,7 +17,7 @@ See further below for a list of tested commits.
 ### Plutus Pioneer Program
 For the *Plutus Pioneer Program*, you should target a specific commit. Open the `cabal.project` file and look for `source-repository-package` with location [https://github.com/input-output-hk/plutus.git](https://github.com/input-output-hk/plutus.git).
 
-The specified tag, e.g., `8a20664f00d8f396920385947903761a9a897fe0` for week06, should be used as `PLUTUS_GIT_COMMIT`. 
+The specified tag, e.g., `7b5829f2ac57fcfa25a5969ff602b48641b36ac3` for week06, should be used as `PLUTUS_GIT_COMMIT`. 
 
 | Week | PLUTUS_GIT_COMMIT                                                                                                                     |
 |:----:|--------------------------------------------------------------------------------------------------------------------------------------:|
@@ -26,6 +26,10 @@ The specified tag, e.g., `8a20664f00d8f396920385947903761a9a897fe0` for week06, 
 | 3    | [`219992289c6615e197069d022735cb4059d43229`](https://github.com/input-output-hk/plutus/tree/219992289c6615e197069d022735cb4059d43229) |
 | 4    | [`2fbb7abb22138a434bb6c4f663a81e9b9dc51e98`](https://github.com/input-output-hk/plutus/tree/2fbb7abb22138a434bb6c4f663a81e9b9dc51e98) |
 | 6    | [`8a20664f00d8f396920385947903761a9a897fe0`](https://github.com/input-output-hk/plutus/tree/8a20664f00d8f396920385947903761a9a897fe0) |
+| 7    | [`8a20664f00d8f396920385947903761a9a897fe0`](https://github.com/input-output-hk/plutus/tree/8a20664f00d8f396920385947903761a9a897fe0) |
+| 8    | [`2f11c28bd8f6d630daab582255e16d8408075bd7`](https://github.com/input-output-hk/plutus/tree/2f11c28bd8f6d630daab582255e16d8408075bd7) |
+| 9    | [`7b5829f2ac57fcfa25a5969ff602b48641b36ac3`](https://github.com/input-output-hk/plutus/tree/7b5829f2ac57fcfa25a5969ff602b48641b36ac3) |
+| 10   | [`7b5829f2ac57fcfa25a5969ff602b48641b36ac3`](https://github.com/input-output-hk/plutus/tree/7b5829f2ac57fcfa25a5969ff602b48641b36ac3) |
 
 
 For older releases that were used in the first cohort of the *Plutus Pioneer Program*, please checkout the branch *first-cohort*.
@@ -43,7 +47,7 @@ You can also use the plutus-core image to build projects from the [Plutus Pionee
 The first thing you have to do, is to build the image. If you have previously built the docker-compose file, this will be very fast thanks to Docker's caching feature.
 ```Powershell
 cd build
-docker build --target plutus-core --build-arg PLUTUS_GIT_COMMIT=81ba78edb1d634a13371397d8c8b19829345ce0d --tag plutus-core:cohort2-week2 .
+docker build --target plutus-core --build-arg PLUTUS_GIT_COMMIT=7b5829f2ac57fcfa25a5969ff602b48641b36ac3 --tag plutus-core:cohort2-week2 .
 ```
 
 Then, you can run the image inside your existing clone of the *Plutus Pioneer Program* project:
