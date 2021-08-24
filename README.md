@@ -99,6 +99,8 @@ docker-compose -f docker-compose-docs.yml up -d
 * Insufficient disk space with the *WSL 2* based Docker engine on Windows
   - Move the disk image from its default location `%LOCALAPPDATA%\Docker\wsl\data\ext4.vhdx` to another disk as described [here](https://stackoverflow.com/questions/62441307/how-can-i-change-the-location-of-docker-images-when-using-docker-desktop-on-wsl2).
   - The entry `memory` in your [wsl configuration](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig) *may* also have to be increased because, as it seems, the default is 50% of your primary disk independent on which disk the image resides.
+* Slowing down of your whole system due to paging on insufficient physical memory with the *WSL 2* based Docker engine on Windows
+  - It might help to set the entry `processors` in your [wsl configuration](https://docs.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig) to a value that is lower than the number of processors you actually have. Fewer processes consume less memory, which might avoid paging and, hence, even improve the performance.
 
 
 ## Links
